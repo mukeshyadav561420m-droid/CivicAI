@@ -2,28 +2,30 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 
-from backend.app.database.connection import Base, engine
-from backend.app.database.seed import seed_database_if_empty
+from app.database.connection import Base, engine
+from app.database.seed import seed_database_if_empty
 
-from backend.app.api.complaints import router as complaints_router
-from backend.app.api.users import router as users_router
-from backend.app.api.auth import router as auth_router
-from backend.app.api.rbac_test import router as rbac_test_router
-from backend.app.api.officer import router as officer_router
-from backend.app.api.admin import router as admin_router
-from backend.app.api.ai import router as ai_router
+from app.api.complaints import router as complaints_router
+from app.api.users import router as users_router
+from app.api.auth import router as auth_router
+from app.api.rbac_test import router as rbac_test_router
+from app.api.officer import router as officer_router
+from app.api.admin import router as admin_router
+from app.api.ai import router as ai_router
 
-from backend.app.models.complaint import Complaint
-from backend.app.models.user import User
-from backend.app.models.complaint_history import ComplaintHistory
+from app.models.complaint import Complaint
+from app.models.user import User
+from app.models.complaint_history import ComplaintHistory
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Create all database tables on startup
     Base.metadata.create_all(bind=engine)
+
     # Seed default municipal accounts and complaints if database is empty
     seed_database_if_empty()
+
     yield
 
 
