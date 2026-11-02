@@ -5,10 +5,10 @@ from jose import jwt
 from dotenv import load_dotenv
 import os
 
-from backend.app.database.connection import get_db
-from backend.app.models.user import User
-from backend.app.schemas.user import UserLogin, UserRegister
-from backend.app.services.security import hash_password, verify_password
+from app.database.connection import get_db
+from app.models.user import User
+from app.schemas.user import UserLogin, UserRegister
+from app.services.security import hash_password, verify_password
 
 load_dotenv("backend/.env", override=True)
 load_dotenv(".env", override=True)

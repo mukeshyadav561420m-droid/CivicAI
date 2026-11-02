@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 
-from backend.app.services.roles import require_roles
+from app.services.roles import require_roles
 
 router = APIRouter(
     prefix="/test",

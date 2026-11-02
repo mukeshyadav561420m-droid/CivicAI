@@ -2,11 +2,11 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from typing import Optional
 
-from backend.app.database.connection import get_db
-from backend.app.models.complaint import Complaint
-from backend.app.models.user import User
-from backend.app.models.complaint_history import ComplaintHistory
-from backend.app.services.roles import require_roles
+from app.database.connection import get_db
+from app.models.complaint import Complaint
+from app.models.user import User
+from app.models.complaint_history import ComplaintHistory
+from app.services.roles import require_roles
 
 router = APIRouter(
     prefix="/officer",

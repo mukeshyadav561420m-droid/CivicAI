@@ -1,5 +1,5 @@
-from backend.app.database.connection import SessionLocal
-from backend.app.models.complaint_history import ComplaintHistory
+from app.database.connection import SessionLocal
+from app.models.complaint_history import ComplaintHistory
 
 db = SessionLocal()
 

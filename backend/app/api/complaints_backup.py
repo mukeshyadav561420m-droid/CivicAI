@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from backend.app.database.connection import get_db
-from backend.app.models.complaint import Complaint
-from backend.app.schemas.complaint import ComplaintCreate, ComplaintResponse
-from backend.app.schemas.complaint_status import ComplaintStatusUpdate
+from app.database.connection import get_db
+from app.models.complaint import Complaint
+from app.schemas.complaint import ComplaintCreate, ComplaintResponse
+from app.schemas.complaint_status import ComplaintStatusUpdate
 
 router = APIRouter(
     prefix="/complaints",

@@ -3,10 +3,10 @@ from pydantic import BaseModel
 from typing import Optional
 from sqlalchemy.orm import Session
 
-from backend.app.database.connection import get_db
-from backend.app.models.complaint import Complaint
-from backend.app.ai.analyzer import analyze_civic_text
-from backend.app.ai.duplicate_detector import find_potential_duplicates
+from app.database.connection import get_db
+from app.models.complaint import Complaint
+from app.ai.analyzer import analyze_civic_text
+from app.ai.duplicate_detector import find_potential_duplicates
 
 router = APIRouter(
     prefix="/ai",

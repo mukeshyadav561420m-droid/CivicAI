@@ -2,14 +2,14 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from typing import Optional
 
-from backend.app.database.connection import get_db
-from backend.app.models.complaint import Complaint
-from backend.app.models.complaint_history import ComplaintHistory
-from backend.app.schemas.complaint import ComplaintCreate, ComplaintResponse, ComplaintFeedbackCreate
-from backend.app.schemas.complaint_status import ComplaintStatusUpdate
-from backend.app.services.roles import require_roles
-from backend.app.services.auth import get_current_user
-from backend.app.ai.analyzer import analyze_civic_text
+from app.database.connection import get_db
+from app.models.complaint import Complaint
+from app.models.complaint_history import ComplaintHistory
+from app.schemas.complaint import ComplaintCreate, ComplaintResponse, ComplaintFeedbackCreate
+from app.schemas.complaint_status import ComplaintStatusUpdate
+from app.services.roles import require_roles
+from app.services.auth import get_current_user
+from app.ai.analyzer import analyze_civic_text
 
 router = APIRouter(
     prefix="/complaints",
