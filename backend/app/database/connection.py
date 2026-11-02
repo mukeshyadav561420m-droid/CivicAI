@@ -9,6 +9,10 @@ load_dotenv(".env", override=True)
 # Default to SQLite for seamless zero-dependency local running, or use PostgreSQL if configured
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./civicai.db")
 
+# Render PostgreSQL URL starts with postgres://, which SQLAlchemy requires to be postgresql://
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
 connect_args = {}
 if DATABASE_URL.startswith("sqlite"):
     connect_args = {"check_same_thread": False}
